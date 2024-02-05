@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Contador_Timer0.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.INC</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Debug\Contador_Timer0.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Contador_Timer0.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Contador_Timer0.map</FILE>
+  <FILE>Contador_Timer0.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <Setup><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Contador_Timer0.asm</FILE><LINE>28</LINE></Setup>
+  <Setup_Timer><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Contador_Timer0.asm</FILE><LINE>72</LINE></Setup_Timer>
+  <Loop><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Contador_Timer0.asm</FILE><LINE>52</LINE></Loop>
+  <Res_Timer><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\01_Prelab2\Contador_Timer0\Contador_Timer0\Contador_Timer0.asm</FILE><LINE>76</LINE></Res_Timer>
+ </LABELS>
+</ASSEMBLER_INFO>
