@@ -52,6 +52,9 @@ Setup:
 	LDI R18, 0x00 ; Estado de B
 	LDI R19, 0x00 ; Contador Timer0
 	LDI R20, 0x00 ; Contador 7seg
+	LDI R21, 0x00 ; Contador secundario 1s
+	LDI R22, 0x00 ; LED Alerta
+	LDI R23, 0x00 ; Reg de Combinacion
 
 ;-----------------------------------------------
 ; LOOP de flash memory
@@ -62,11 +65,18 @@ Loop:
 	BRNE Verif7seg 
 	
 	; Contador Binario 4 bits ----------------------------------------------------
-	INC R19 ; Al momento en que cambia, incremento el contador R19
+	INC R21 ; Al momento en que cambia, incremento el contador R21
+	CPI R21, 10 ; Compara si el Timer0 ha pasado 10 ciclos (100ms*10)
+	BRNE ResT1 ; Si no han pasado 10 ciclos, salto hasta el Reset de Timer0
+	LDI R21, 0x00 ; Reset de R21 
+	INC R19
 	ANDI R19, 0x0F ; Y limpio el nibble más alto
-	OUT PORTC, R19 ; Despliego el contador en PORTC
+	MOV R23, R22 ; Copio la alerta de LED al R de comb
+	OR R23, R19 ; Combino Alerta LED con Contador 
+	OUT PORTC, R23 ; Despliego la combinacion en PORTC
 
 	; Reset de Timer0 ------------------------------------------------------------
+ResT1: ; Simple label para poder skippear a esta posición
 	CALL Res_Timer
 	SBI TIFR0, TOV0 ; Para borrar bandera, set bandera en TIFR0
 	
@@ -94,6 +104,17 @@ Modif7seg:
 	ADD ZL, R20 ; Añadir el valor del contador R20 al puntero Z para obtener la salida en PORTD
 	LPM R16, Z ; Copia el valor guardado en el nuevo Z
 	OUT PORTD, R16 ; Modifico el 7 segmentos en PORTD
+
+	; Comparación de R21 y R20 ------------------------------------------
+CompConts: 
+	CP R19, R20 ; Compara el contador de segundos y el del 7Seg
+	BRNE Loop ; Si no son iguales vuelve al loop
+	LDI R19, 0x00 ; De ser iguales: Resetea el C.segundos
+	LDI R21, 0x00 ; Resetea el C.Timer0
+	SWAP R22 ; Revierte R22 a su estado original
+	INC R22 ; Y modifica el registro de alerta LED
+	ANDI R22, 0X01 ; Limpia los bits que no sean el primero 
+	SWAP R22 ; Y devuelve al nibble alto
 
 	RJMP Loop ; Vuelve a Loop
 
