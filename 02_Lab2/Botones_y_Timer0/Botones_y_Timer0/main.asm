@@ -3,10 +3,10 @@
 ; IE2023: Programacion de Microcontroladores
 ; Botones_y_Timer0.asm
 ; Autor: Ian Anleu Rivera
-; Proyecto: Prelab 2
+; Proyecto: Laboratorio 2
 ; Hardware: ATMEGA328P
 ; Creado: 05/02/2024
-; Ultima modificacion: 05/02/2024
+; Ultima modificacion: 06/02/2024
 ;-----------------------------------------------
 
 .include "M328PDEF.INC" ; Nombres de Registros
@@ -48,13 +48,13 @@ Setup:
 
 	; Registros adicionales
 	; R16 será multiusos
-	LDI R17, 0xFF ; Estados previos
-	LDI R18, 0x00 ; Estado de B
-	LDI R19, 0x00 ; Contador Timer0
-	LDI R20, 0x00 ; Contador 7seg
-	LDI R21, 0x00 ; Contador secundario 1s
-	LDI R22, 0x00 ; LED Alerta
-	LDI R23, 0x00 ; Reg de Combinacion
+	LDI R17, 0xFF ; R17 Estados previos
+	; R18 Estado de B
+	; R19 Contador Timer0
+	; R20 Contador 7seg
+	; R21 Contador secundario 1s
+	; R22 LED Alerta
+	; R23 Reg de Combinacion
 
 ;-----------------------------------------------
 ; LOOP de flash memory
@@ -68,8 +68,9 @@ Loop:
 	INC R21 ; Al momento en que cambia, incremento el contador R21
 	CPI R21, 10 ; Compara si el Timer0 ha pasado 10 ciclos (100ms*10)
 	BRNE ResT1 ; Si no han pasado 10 ciclos, salto hasta el Reset de Timer0
+	; Si ya paso 1 segundo
 	LDI R21, 0x00 ; Reset de R21 
-	INC R19
+	INC R19 ; Incremento del contador Binario
 	ANDI R19, 0x0F ; Y limpio el nibble más alto
 	MOV R23, R22 ; Copio la alerta de LED al R de comb
 	OR R23, R19 ; Combino Alerta LED con Contador 
@@ -159,4 +160,4 @@ Decrementar:
 
 ;-----------------------------------------------
 ; Tabla de Valores para 7seg
-Tabla7seg: .db 0x03, 0x9F, 0x25, 0x0D, 0x99, 0x49, 0x41, 0x1F, 0x01, 0x09, 0x11, 0xC1, 0x63, 0x85, 0x61, 0x71
+Tabla7seg: .db 0x82, 0xEE, 0x43, 0X4A, 0x2E, 0x1A, 0x12, 0xCE, 0x02, 0x0A, 0x06, 0x32, 0x93, 0x62, 0x13, 0x17

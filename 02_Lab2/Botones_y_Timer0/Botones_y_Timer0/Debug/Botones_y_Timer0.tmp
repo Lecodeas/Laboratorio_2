@@ -24,18 +24,18 @@
  </OUTPUT_FILES>
  <LABELS>
   <Setup><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>28</LINE></Setup>
-  <Setup_Timer><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>125</LINE></Setup_Timer>
+  <Setup_Timer><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>126</LINE></Setup_Timer>
   <Loop><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>62</LINE></Loop>
-  <Verif7seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>84</LINE></Verif7seg>
-  <ResT1><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>79</LINE></ResT1>
-  <Res_Timer><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>129</LINE></Res_Timer>
-  <Modif7seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>101</LINE></Modif7seg>
-  <Antirrebote><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>136</LINE></Antirrebote>
-  <Contador7Seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>146</LINE></Contador7Seg>
-  <Tabla7seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>162</LINE></Tabla7seg>
-  <CompConts><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>109</LINE></CompConts>
-  <Delay><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>138</LINE></Delay>
-  <Aumentar><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>148</LINE></Aumentar>
-  <Decrementar><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>153</LINE></Decrementar>
+  <Verif7seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>85</LINE></Verif7seg>
+  <ResT1><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>80</LINE></ResT1>
+  <Res_Timer><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>130</LINE></Res_Timer>
+  <Modif7seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>102</LINE></Modif7seg>
+  <Antirrebote><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>137</LINE></Antirrebote>
+  <Contador7Seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>147</LINE></Contador7Seg>
+  <Tabla7seg><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>163</LINE></Tabla7seg>
+  <CompConts><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>110</LINE></CompConts>
+  <Delay><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>139</LINE></Delay>
+  <Aumentar><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>149</LINE></Aumentar>
+  <Decrementar><FILE>C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm</FILE><LINE>154</LINE></Decrementar>
  </LABELS>
 </ASSEMBLER_INFO>

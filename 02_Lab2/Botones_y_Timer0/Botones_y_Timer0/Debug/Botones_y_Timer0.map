@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm Tue Feb 06 00:28:32 2024
+AVRASM ver. 2.2.8  C:\Users\Admin\Desktop\Assembler Labs\02_Laboratorio2\Laboratorio_2\02_Lab2\Botones_y_Timer0\Botones_y_Timer0\main.asm Tue Feb 06 11:56:16 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -696,16 +696,16 @@ EQU  TWIaddr      00000030
 EQU  SPMRaddr     00000032
 EQU  INT_VECTORS_SIZE 00000034
 CSEG Setup        00000004
-CSEG Setup_Timer  00000044
-CSEG Loop         0000001b
-CSEG Verif7seg    0000002a
-CSEG ResT1        00000027
-CSEG Res_Timer    00000046
-CSEG Modif7seg    00000036
-CSEG Antirrebote  00000049
-CSEG Contador7Seg 0000004e
-CSEG Tabla7seg    00000055
-CSEG CompConts    0000003b
-CSEG Delay        0000004a
-CSEG Aumentar     0000004e
-CSEG Decrementar  00000051
+CSEG Setup_Timer  0000003e
+CSEG Loop         00000015
+CSEG Verif7seg    00000024
+CSEG ResT1        00000021
+CSEG Res_Timer    00000040
+CSEG Modif7seg    00000030
+CSEG Antirrebote  00000043
+CSEG Contador7Seg 00000048
+CSEG Tabla7seg    0000004f
+CSEG CompConts    00000035
+CSEG Delay        00000044
+CSEG Aumentar     00000048
+CSEG Decrementar  0000004b
