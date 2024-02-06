@@ -1,11 +1,11 @@
 ;-----------------------------------------------
 ; Universidad del Valle de Guatemala
 ; IE2023: Programacion de Microcontroladores
-; Contador_Timer0.asm
+; Botones_y_Timer0.asm
 ; Autor: Ian Anleu Rivera
 ; Proyecto: Prelab 2
 ; Hardware: ATMEGA328P
-; Creado: 04/02/2024
+; Creado: 05/02/2024
 ; Ultima modificacion: 05/02/2024
 ;-----------------------------------------------
 
@@ -35,38 +35,66 @@ Setup:
 	; Timer0
 	CALL Setup_Timer ; Llama a inicializar el Timer0
 
-	; Entradas 
-
-	; Salidas
+	; Entradas (PORTB a Buttons)
 	LDI R16, 0xFF
+	LDI R17, 0x00
+	OUT DDRB, R17 ; Configura todos de PORTB a Entradas
+	OUT PORTB, R16 ; Configurar todos Pull-Up
+
+	; Salidas (PORTD y PORTC a LEDs)
 	OUT DDRD, R16 ; Configura PORTD a Salida
-	LDI R16, 0x00 
-	STS UCSR0B, R16 ; Deshabilita USART
+	OUT DDRC, R16 ; Configura PORTC a Salida
+	STS UCSR0B, R17 ; Deshabilita USART en D
 
 	; Registros adicionales
-	LDI R17, 0x00 ; R17 será el contador de 4 bits
+	; R16 será multiusos
+	LDI R17, 0xFF ; Estados previos
+	LDI R18, 0x00 ; Estado de B
+	LDI R19, 0x00 ; Contador Timer0
+	LDI R20, 0x00 ; Contador 7seg
 
 ;-----------------------------------------------
 ; LOOP de flash memory
 
-Loop:
-	; Incremento del contador con timer0
+Loop:	
 	IN R16, TIFR0 ; Cargar valor de Timer 
 	CPI R16, (1<<TOV0) ; Se compara la posicion de bandera de overflow en el timer
-	BRNE Loop 
+	BRNE Verif7seg 
 	
 	; Contador Binario 4 bits ----------------------------------------------------
-	INC R17 ; Al momento en que cambia, incremento el contador R17
-	ANDI R17, 0x0F ; Y limpio el nibble más alto
-	OUT PORTD, R17 ; Despliego el contador en PORTD
-
-	; Contador Hexadecimal 7 SEG -------------------------------------------------
-
+	INC R19 ; Al momento en que cambia, incremento el contador R19
+	ANDI R19, 0x0F ; Y limpio el nibble más alto
+	OUT PORTC, R19 ; Despliego el contador en PORTC
 
 	; Reset de Timer0 ------------------------------------------------------------
 	CALL Res_Timer
 	SBI TIFR0, TOV0 ; Para borrar bandera, set bandera en TIFR0
 	
+	; Contador Hexadecimal 7 SEG -------------------------------------------------
+Verif7seg:
+	; Antirrebote de PinB
+	IN R18, PINB
+	; Ya tengo estados previos en R19
+	CP R17, R18 ; Comparo los estados actual y previo por algun cambio
+	BREQ Modif7seg ; Si no han cambiado, voy a desplegar el resultado actual
+	CALL Antirrebote
+	IN R18, PINB
+	CP R17, R18 ; Comparo los estados actual y previo por algun cambio
+	BREQ Loop ; Si no han cambiado, mantengo el loop
+	; Si cambiaron
+	MOV R17, R18 ; Modifico el estado actual y
+
+	CALL Contador7Seg ; Verifico operaciones del contador del 7 seg
+
+	ANDI R20, 0x0F ; Limpio el nibble mayor del contador R20
+
+Modif7seg:
+	LDI ZH, HIGH(Tabla7seg<<1)
+	LDI ZL, LOW(Tabla7seg<<1) ; Puntero Z siempre apuntará a la Tabla
+	ADD ZL, R20 ; Añadir el valor del contador R20 al puntero Z para obtener la salida en PORTD
+	LPM R16, Z ; Copia el valor guardado en el nuevo Z
+	OUT PORTD, R16 ; Modifico el 7 segmentos en PORTD
+
 	RJMP Loop ; Vuelve a Loop
 
 ;-----------------------------------------------
@@ -82,4 +110,32 @@ Res_Timer:
 	OUT TCNT0, R16 ; Aprox 99.84ms
 	RET
 
+;-------------------------------------------------
+
+Antirrebote:
+	LDI R16, 100 ; 100 Ciclos entre lecturas
+Delay:
+	DEC R16 ; Disminuye el contador
+	CPI R16, 0x00 ; Compara Contador con 0
+	BRNE Delay ; Vuelve a Delay si no son iguales
+	RET
+
 ;-----------------------------------------------
+
+Contador7seg:
+; CONTADOR R20
+Aumentar:
+	SBRC R18, PB0 ; Determino si el boton de aumentar esta presionado 
+	RJMP Decrementar ; De no estar presionado, verifico el otro botón
+	INC R20 ; De estar presionado, aumento contador R20
+
+Decrementar:
+	SBRC R18, PB1 ; Determino si el boton de decrementar esta presionado 
+	RET ; De no estar presionado, vuelvo al CALL
+	DEC R20 ; De estar presionado, disminuyo contador R20
+	
+	RET
+
+;-----------------------------------------------
+; Tabla de Valores para 7seg
+Tabla7seg: .db 0x03, 0x9F, 0x25, 0x0D, 0x99, 0x49, 0x41, 0x1F, 0x01, 0x09, 0x11, 0xC1, 0x63, 0x85, 0x61, 0x71
